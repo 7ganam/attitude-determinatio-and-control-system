@@ -1,0 +1,20 @@
+function everythingHandle = DrawAxes(alpha)
+[X, Y, Z] = cylinder();
+X = X / 50;
+Y = Y / 50;
+everythingHandle = hgtransform;
+xhg = hgtransform;
+yhg = hgtransform;
+zhg = hgtransform;
+xAxis = surf(X, Y, Z, 'FaceColor', 'r', 'FaceAlpha', alpha, 'EdgeAlpha', 0, 'Parent', xhg);
+yAxis = surf(X, Y, Z, 'FaceColor', 'g', 'FaceAlpha', alpha, 'EdgeAlpha', 0, 'Parent', yhg);
+zAxis = surf(X, Y, Z, 'FaceColor', 'b', 'FaceAlpha', alpha, 'EdgeAlpha', 0, 'Parent', everythingHandle);
+xhg.Matrix = makehgtform('yrotate',pi/2);
+yhg.Matrix = makehgtform('xrotate',-pi/2);
+xhg.Parent = everythingHandle;
+yhg.Parent = everythingHandle;
+[X,Y,Z] = cylinder();
+X = X / 10;
+Y = Y / 10;
+Z = Z / 2 - 0.25 ;
+surf(X, Y, Z, 'FaceColor', 'k', 'FaceAlpha', alpha, 'EdgeAlpha', 0, 'Parent', everythingHandle);
